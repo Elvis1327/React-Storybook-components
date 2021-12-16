@@ -12,11 +12,21 @@ export interface MyLabelProps {
     size: 'normal' | 'h1' | 'h3';
     allCaps?: boolean;
     color?: 'primary' | 'secondary' | 'tertiary'; 
+    fontColor?: string;
 }
 
-export const MyLabel = ( { label = 'No Label', size = 'normal', color="primary", allCaps=false }: MyLabelProps ) => {
-    return (
-        <span className={`${size} ${`text-${color}`}`}>
+export const MyLabel = ({ 
+    label = 'No Label', 
+    size = 'normal', 
+    color="primary",
+    fontColor,
+    allCaps=false }: 
+    MyLabelProps) => {
+        return (
+        <span 
+            className={`label ${size} ${`text-${color}`}`}
+            style={{color: fontColor}}
+            >
             { allCaps === true ? label.toUpperCase() : label }
         </span>
     )

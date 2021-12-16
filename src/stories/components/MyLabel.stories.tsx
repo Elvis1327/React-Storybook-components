@@ -3,7 +3,11 @@ import { MyLabel, MyLabelProps } from "../../components/MyLabel";
 
 export default {
     title: 'UI/MyLabel',
-    component: MyLabel
+    component: MyLabel,
+    argTypes: {
+        color: {control: 'select'},
+        fontColor: {control: 'color'}
+    }
 } as ComponentMeta<typeof MyLabel >
 
 const Template: ComponentStory<typeof MyLabel> = (args) => <MyLabel {...args} />
@@ -11,7 +15,8 @@ const Template: ComponentStory<typeof MyLabel> = (args) => <MyLabel {...args} />
 export const Basic = Template.bind({});
 Basic.args = {
     label: "Hola Mundo",
-    size: 'h3'
+    size: 'h3',
+    color: 'tertiary'
 }
 
 export const AllCaps = Template.bind({});
@@ -33,5 +38,12 @@ Ternary.args = {
     size: 'h3',
     color: 'primary',
     allCaps: true
+}
+
+export const CustomFontColor = Template.bind({});
+CustomFontColor.args = {
+    label: 'Custom Font Color',
+    size: 'h1',
+    fontColor: 'red'
 }
 
